@@ -406,7 +406,7 @@ resize_and_render () {
 
 # apply resize
 base_resize() {
-    local input="$1"
+    local input=$(echo "$1" | sed -e 's/(/\\(/g' -e 's/)/\\)/g')
     local output="$2"
     local size="$3"
 
